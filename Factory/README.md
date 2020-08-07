@@ -18,15 +18,24 @@ Software Requirements:
 
 2. Clone this repository onto your computer: https://github.com/...
 
-3. In your preferred terminal window, navigate into PROJECTNAME.SOLUTIONS/PROJECTNAME using cd (i.e. cd
-   desktop/PROJECTNAME.SOLUTIONS/PROJECTNAME) and open the project with your preferred code editor.
+3. In your preferred terminal window, navigate into Factory.Solution/Factory using cd (i.e. cd
+   desktop/Factory.Solution/Factory) and open the project with your preferred code editor.
+
 4. Run the following terminal command: $ dotnet restore
 
-5. To initiate this terminal program, run the command: $ dotnet run
+5. In order for this program to work you will need to create an appsettings.json file, after you do that enter this code in it:
 
-6. To run the test suite included with this project, within the terminal navigate into PROJECTNAME.TESTS and run the following commands:
-  * $ dotnet restore
-  * $ dotnet test
+  ```{
+    "ConnectionStrings": {
+      "DefaultConnection": "Server=localhost;Port=3306;database=Ben_White;uid=root;pwd={ _password_ };"
+    }
+  }
+  ```
+  * Replacing password with your server password
+
+
+6. To initiate this application, run the command: $ dotnet run
+
 
 ## User Stories
 * As the factory manager, I need to be able to see a list of all engineers, and I need to be able to see a list of all machines.
