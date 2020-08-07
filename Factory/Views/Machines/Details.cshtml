@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+
+<h2>Machine Details</h2>
+
+<h4>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h4>
+<h4>@Html.DisplayName("Liscensed Engineers: ")</h4>
+<ul>
+  @foreach (var join in Model.Engineers)
+  {
+    <li>@join.Engineer.Name</li>
+  }
+</ul>
+<p>@Html.ActionLink("Remove Machine", "Delete", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("List of Machines", "Index")</p>
