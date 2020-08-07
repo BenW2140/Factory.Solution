@@ -7,7 +7,7 @@
 <h3>Would you like to delete @Model.Name?</h3>
 
 <h4>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h4>
-@using (@Html.BeginForm())
+@using (Html.BeginForm())
 {
   <input type="submit" value="Delete" />
 }
