@@ -8,17 +8,25 @@
 
 <h4>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h4>
 <h4>@Html.DisplayName("Authorized Machines: ")</h4>
-<ul>
-  @foreach (var join in Model.Machines)
-  {
-    <li>@join.Machine.Name</li>
-    @using (Html.BeginForm("DeleteMachine", "Engineers"))
+@if (Model.Machines.Count == 0)
+{
+  <p>@Model.Name is not authorized to any machines</p>
+}
+else
+{
+  <ul>
+    @foreach (var join in Model.Machines)
     {
-      @Html.Hidden("joinId", @join.EngineerMachineId)
-      <input type="submit" value="Delete">
+      <li>@join.Machine.Name</li>
+      @using (Html.BeginForm("DeleteMachine", "Engineers"))
+      {
+        @Html.Hidden("joinId", @join.EngineerMachineId)
+        <input type="submit" value="Delete">
+      }
     }
-  }
-</ul>
+  </ul>
+}
+
 <p>@Html.ActionLink("Remove Engineer", "Delete", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Add a Machine", "AddMachine", new { id = Model.EngineerId })</p>
